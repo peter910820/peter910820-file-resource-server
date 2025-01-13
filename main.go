@@ -7,12 +7,16 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/template/jet/v2"
-
+	"github.com/joho/godotenv"
 	"github.com/sirupsen/logrus"
 )
 
 func main() {
 	os.MkdirAll("./image", os.ModePerm)
+	err := godotenv.Load()
+	if err != nil {
+		logrus.Fatal(err)
+	}
 	// logrus settings
 	logrus.SetFormatter(&logrus.TextFormatter{
 		ForceColors:   true,
@@ -68,5 +72,5 @@ func main() {
 		return c.Status(fiber.StatusOK).SendString("save file successful!")
 	})
 
-	logrus.Fatal(app.Listen(":3000"))
+	logrus.Fatal(app.Listen(fmt.Sprintf(":%s", os.Getenv("PORT"))))
 }
