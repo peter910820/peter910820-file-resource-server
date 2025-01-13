@@ -1,0 +1,8 @@
+{{include "partials/header"}}
+
+<div class="row">
+    <h1>已存在檔案: </h1>
+    {{ range FileName }}
+    <a href="{{ . }}"><span>{{ . }}</span></a>
+    {{ end }}
+</div>
