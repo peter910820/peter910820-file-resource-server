@@ -1,0 +1,13 @@
+<script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
+<script>
+    const md = window.markdownit();
+
+    const textarea = document.getElementById('markdown-input');
+    const output = document.getElementById('markdown-display');
+
+    textarea.addEventListener('input', function() {
+        const markdownText = textarea.value;
+        const htmlContent = md.render(markdownText);
+        output.innerHTML = htmlContent;
+    });
+</script>

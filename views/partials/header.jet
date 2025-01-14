@@ -1,6 +1,6 @@
  <nav>
   <div class="nav-wrapper">
-    <a href="/" class="brand-logo">Logo</a>
+    <a href="/" class="brand-logo">Home</a>
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
       <li>
@@ -9,9 +9,16 @@
           檔案夾
         </a>
       </li>
+       <li>
+        <a href="/text-editor">
+          <i class="material-icons right">edit_note</i>
+          文字編輯器
+        </a>
+      </li>
     </ul>
   </div>
 </nav>
 <ul class="sidenav" id="mobile-demo">
   <li><a href="/folder">檔案夾</a></li>
+  <li><a href="/text-editor">文字編輯器</a></li>
 </ul>

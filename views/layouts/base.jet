@@ -12,9 +12,7 @@
   <title>SeaotterMS的資源伺服器</title>
 </head>
 <body>
-  <main>
-    {{ embed() }}
-  </main>
+  {{ embed() }}
 </body>
 <script>
 document.addEventListener('DOMContentLoaded', function() {

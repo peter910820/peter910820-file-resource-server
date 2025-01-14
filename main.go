@@ -59,6 +59,10 @@ func main() {
 		}, "layouts/base")
 	})
 
+	app.Get("/text-editor", func(c *fiber.Ctx) error {
+		return c.Render("textEditor", nil, "layouts/base")
+	})
+
 	app.Post("/api/upload", func(c *fiber.Ctx) error {
 		file, err := c.FormFile("file")
 		if err != nil {
