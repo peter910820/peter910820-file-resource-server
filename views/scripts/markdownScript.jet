@@ -1,0 +1,32 @@
+<script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/styles/atom-one-dark.min.css">
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/languages/go.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const md = window.markdownit({
+        highlight: function (str, lang) {
+            if (lang && window.hljs.getLanguage(lang)) {
+                try {
+                    return '<pre class="hljs"><code>' +
+                            window.hljs.highlight(lang, str, true).value +
+                            '</code></pre>';
+                } catch (__) {}
+            }
+            return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
+        }
+    });
+
+    const textarea = document.getElementById('markdown-input');
+    const output = document.getElementById('markdown-display');
+
+    textarea.addEventListener('input', function() {
+        const markdownText = textarea.value;
+        const htmlContent = md.render(markdownText);
+        output.innerHTML = htmlContent;
+
+        hljs.highlightAll();
+    });
+});
+</script>
